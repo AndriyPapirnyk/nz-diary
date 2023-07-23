@@ -49,7 +49,7 @@ connect();
 
 // app.get('/main', (req,res) => {
 //     res.sendFile(__dirname + '/main.html')
-// })
+// }
 
 app.listen(PORT, () => {
     console.log(`Server works on port: ${PORT}`)
