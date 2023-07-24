@@ -4,23 +4,86 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    &__row{
-        width: 100%;
-        height: min-content;
+    position: relative;
+    background-image: url(./img/background.jpg);
+    background-size: cover;
+    &__container{
+        width: 1250px;
+        height: 100%;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+    &__main{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        z-index: 2;
+        @media screen and (max-width: 845px) {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__logo{
+        display: flex;
+        align-items: center;
+        h1{
+            font-size: 50px;
+            font-weight: 700;
+            margin: 0 0 0 5px;
+            @media screen and (max-width: 430px) {
+                font-size: 40px;
+            }
+        }
+        img{
+            width: 50px;
+            @media screen and (max-width: 430px) {
+                width: 40px;
+            }
+        }
+    }
+    &__row{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        @media screen and (max-width: 430px) {
+            gap: 15px;
+        }
     }
     &__btn{
-        width: 150px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #000;
-        border: 1px solid #000;
-        border-radius: 5px;
-        margin: 0 10px;
+        border: none;
+        width: 190px;
+        height: 50px;
+        background: #6864ED;
+        box-shadow: 0px 6px 26px rgba(27, 26, 26, 0.25);
+        border-radius: 8px;
+        color: #fff;
+        font-size: 18px;
         cursor: pointer;
+        @media screen and (max-width: 430px) {
+            width: 140px;
+        }
+    }
+    &__line{
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+    &__illustration{
+        width: 40%;
+        z-index: 0;
+        @media screen and (max-width: 845px) {
+            display: none;
+        }
+    }
+    p{
+        font-size: 25px;
+        font-weight: 600;
+        @media screen and (max-width: 430px) {
+            font-size: 20px;
+        }
     }
 }
