@@ -33,8 +33,8 @@ function Welcome() {
         <p>Welcome to NZ! A wonderful <br />electronic diary designed for <br /> teachers and diligent students</p>
 
         <div className="welcome__row">
-          <button className="welcome__btn" onClick={getLoginPage} >LogIn</button>
-          <button className="welcome__btn" onClick={getSignupPage}>SignUp</button>
+          <button className="welcome__btn" onClick={getLoginPage} >Log In</button>
+          <button className="welcome__btn" onClick={getSignupPage}>Sign Up</button>
         </div>
 
         </div>
