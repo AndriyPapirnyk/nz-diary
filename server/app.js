@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const Student = require('./models/student-model');
 const DBroutes = require('./routes/route');
 require('dotenv').config();
@@ -14,6 +15,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(DBroutes);
+app.use(cors());
 
 async function connect() {
     try {
@@ -25,6 +27,33 @@ async function connect() {
 }
 
 connect();
+
+app.get('/', cors(), (req, res) => {
+    res.send('test')
+})
+
+app.post('/signup', async(req, res) => {
+
+    const inputData = req.body.inputValues;
+
+    // const data = {
+    //     name: signUp__inputName,
+    //     surname: signUp__inputSurname,
+    //     email: signUp__inputEmail,
+    //     age: signUp__inputAge,
+    //     class: signUp__inputClass,
+    //     password: signUp__inputPassword
+    // }
+
+    res.sendStatus(200);
+    console.log(data);    
+    // console.log(inputData.inputValues);
+    
+    // const inputData = req.body;
+    // console.log('Data received from client:', inputData);
+    // res.json({ message: 'Data received and processed successfully!' });
+    // console.log('test')
+});
 
 
 // app.get('/signup', (req,res) => {
