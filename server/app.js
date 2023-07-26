@@ -36,49 +36,58 @@ app.post('/signup', async(req, res) => {
 
     const inputData = req.body.inputValues;
 
-    // const data = {
-    //     name: signUp__inputName,
-    //     surname: signUp__inputSurname,
-    //     email: signUp__inputEmail,
-    //     age: signUp__inputAge,
-    //     class: signUp__inputClass,
-    //     password: signUp__inputPassword
-    // }
+    const data = {
+        email: inputData.signUp__inputEmail,
+        password: inputData.signUp__inputPassword,
+    }
 
-    res.sendStatus(200);
-    console.log(data);    
-    // console.log(inputData.inputValues);
+    console.log(data)
+
+    try{
+        const verify = await Student.findOne({email: data.email});
+        if(verify) {
+            res.sendStatus(404);
+        } else {
+            res.sendStatus(200);         
+        }        
+    }
+    catch(error) {
+        console.log(error)
+    }
+
     
-    // const inputData = req.body;
-    // console.log('Data received from client:', inputData);
-    // res.json({ message: 'Data received and processed successfully!' });
-    // console.log('test')
 });
 
+app.post('/signup-data', async(req, res) => {
 
-// app.get('/signup', (req,res) => {
-//     res.sendFile(__dirname + '/signUP.html')
-// })
+    const inputData = req.body.inputValues;
 
-// app.get('/', (req,res) => {
-//     res.sendFile(__dirname + '/startPage.html')
-// })
+    const data = {
+        name: inputData.signUp__inputName,
+        surname: inputData.signUp__inputSurname,
+        age: inputData.signUp__inputAge,
+        class: inputData.signUp__inputClass,
+        email: inputData.signUp__inputEmail,
+        password: inputData.signUp__inputPassword,
+    }
 
-// app.get('/login', (req,res) => {
-//     res.sendFile(__dirname + '/index.html')
-// })
+    try{
+        const newUser = Student(data);
+        newUser
+        .save()
+        .then((res) => {
+            console.log(res);
+        });
+        res.sendStatus(200)
+    }
+    catch(error) {
+        console.log(error);
+        res.sendStatus(404)
+    }
 
-// app.get('/teacher', (req,res) => {
-//     res.sendFile(__dirname + '/teacher.html')
-// })
+    
+});
 
-// app.get('/start', (req,res) => {
-//     res.sendFile(__dirname + '/startPage.html')
-// })
-
-// app.get('/main', (req,res) => {
-//     res.sendFile(__dirname + '/main.html')
-// }
 
 app.listen(PORT, () => {
     console.log(`Server works on port: ${PORT}`)
