@@ -4,6 +4,13 @@ import axios from 'axios';
 import '../SignUp/SignUp.css';
 
 
+//
+
+
+import star1 from '../SignUp/img/star1.png';
+import star2 from '../SignUp/img/star2.png'
+
+
 export default function UserData(userData) {
 
     const navigate = useNavigate();
@@ -52,7 +59,12 @@ export default function UserData(userData) {
 
 
   return (
-    <form action="POST">
+    <div className="userData">
+      <div className="userData__container">
+      <form action="POST">
+            <img className='logIn__star' src={star1} alt="" />
+            <img className='logIn__star' src={star2} alt="" />
+        <h1>Personal Data</h1>
         <input value={inputValues.signUp__inputName} onChange={handleChange} type="text" className="signUp__input" placeholder='Name' name="signUp__inputName"/>
         <input value={inputValues.signUp__inputSurname} onChange={handleChange} type="text" className="signUp__input" placeholder='Surname' name="signUp__inputSurname"/>
         <input value={inputValues.signUp__inputAge} onChange={handleChange} type="number" className="signUp__input" placeholder='Age' name="signUp__inputAge"/>
@@ -62,7 +74,8 @@ export default function UserData(userData) {
               <option value="Teacher">Teacher</option>
         </select>
         <button type='submit' onClick={sendSignUpData} >Finish</button>
-    </form>
-    
+      </form>
+      </div>
+    </div>
   )
 }
