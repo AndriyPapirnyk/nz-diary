@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Student() {
+export default function () {
   return (
-    <div>Student</div>
+    <div></div>
   )
 }
