@@ -49,7 +49,9 @@ app.post('/login', async(req, res) => {
         console.log(verify)
 
         if(verify) {
-            res.sendStatus(200);
+            res
+            .sendStatus(200)
+            .send(verify)
         } else {
             res.sendStatus(404);         
         }        
