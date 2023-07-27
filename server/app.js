@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const Student = require('./models/student-model');
 const DBroutes = require('./routes/route');
 require('dotenv').config();
@@ -14,6 +15,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(DBroutes);
+app.use(cors());
 
 async function connect() {
     try {
@@ -26,30 +28,66 @@ async function connect() {
 
 connect();
 
+app.get('/', cors(), (req, res) => {
+    res.send('test')
+})
 
-// app.get('/signup', (req,res) => {
-//     res.sendFile(__dirname + '/signUP.html')
-// })
+app.post('/signup', async(req, res) => {
 
-// app.get('/', (req,res) => {
-//     res.sendFile(__dirname + '/startPage.html')
-// })
+    const inputData = req.body.inputValues;
 
-// app.get('/login', (req,res) => {
-//     res.sendFile(__dirname + '/index.html')
-// })
+    const data = {
+        email: inputData.signUp__inputEmail,
+        password: inputData.signUp__inputPassword,
+    }
 
-// app.get('/teacher', (req,res) => {
-//     res.sendFile(__dirname + '/teacher.html')
-// })
+    console.log(data)
 
-// app.get('/start', (req,res) => {
-//     res.sendFile(__dirname + '/startPage.html')
-// })
+    try{
+        const verify = await Student.findOne({email: data.email});
+        if(verify) {
+            res.sendStatus(404);
+        } else {
+            res.sendStatus(200);         
+        }        
+    }
+    catch(error) {
+        console.log(error)
+    }
 
-// app.get('/main', (req,res) => {
-//     res.sendFile(__dirname + '/main.html')
-// }
+    
+});
+
+app.post('/signup-data', async(req, res) => {
+
+    const inputData = req.body.inputValues;
+
+    const data = {
+        name: inputData.signUp__inputName,
+        surname: inputData.signUp__inputSurname,
+        age: inputData.signUp__inputAge,
+        class: inputData.signUp__inputClass,
+        email: inputData.signUp__inputEmail,
+        password: inputData.signUp__inputPassword,
+    }
+
+    try{
+        const newUser = Student(data);
+        newUser
+        .save()
+        .then((res) => {
+            console.log(res);
+        });
+        res.sendStatus(200)
+    }
+    catch(error) {
+        console.log(error);
+        res.sendStatus(404)
+    }
+
+    
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server works on port: ${PORT}`)
