@@ -32,6 +32,33 @@ app.get('/', cors(), (req, res) => {
     res.send('test')
 })
 
+app.post('/login', async(req, res) => {
+
+    const inputData = req.body.inputValues;
+
+    const data = {
+        email: inputData.logIn__inputEmail,
+        password: inputData.logIn__inputPassword,
+    }
+
+    console.log(data)
+
+    try{
+
+        const verify = await Student.findOne({email: data.email, password: data.password});
+
+        if(verify) {
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(404);         
+        }        
+    }
+    catch(error) {
+        console.log(error)
+    }
+
+});
+
 app.post('/signup', async(req, res) => {
 
     const inputData = req.body.inputValues;
