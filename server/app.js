@@ -96,7 +96,10 @@ app.post('/signup-data', async(req, res) => {
         class: inputData.signUp__inputClass,
         email: inputData.signUp__inputEmail,
         password: inputData.signUp__inputPassword,
+        status: inputData.signUp__select,
     }
+
+    console.log(data)
 
     try{
         const newUser = Student(data);

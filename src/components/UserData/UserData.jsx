@@ -26,6 +26,7 @@ export default function UserData(userData) {
         signUp__inputSurname: '',
         signUp__inputAge: '',
         signUp__inputClass: '',
+        signUp__select: '',
     });
 
     const handleChange = (e) => {
@@ -69,7 +70,7 @@ export default function UserData(userData) {
         <input value={inputValues.signUp__inputSurname} onChange={handleChange} type="text" className="signUp__input" placeholder='Surname' name="signUp__inputSurname"/>
         <input value={inputValues.signUp__inputAge} onChange={handleChange} type="number" className="signUp__input" placeholder='Age' name="signUp__inputAge"/>
         <input value={inputValues.signUp__inputClass} onChange={handleChange} type="text" className="signUp__input" placeholder='Class' name="signUp__inputClass"/>
-        <select name="signUp__select" id="signUp__select">
+        <select value={inputValues.signUp__select} onChange={handleChange} name="signUp__select" id="signUp__select">
               <option value="Student">Student</option>
               <option value="Teacher">Teacher</option>
         </select>
