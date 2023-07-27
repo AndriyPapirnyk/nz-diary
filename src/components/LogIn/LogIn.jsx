@@ -35,7 +35,7 @@ function LogIn() {
           await axios.post('http://localhost:8000/login', {inputValues})
           .then((response) => {
             let userData = response.data;
-            console.log(userData)
+            console.log(userData.status)
               response.status === 200 ? navigate('/home') : alert('somethin went wrong');
           })
           .catch((error) => {
