@@ -8,7 +8,7 @@ function SignUp() {
       <input type="text" className="signUp__input" placeholder='surname' name="signUp__inputSurname"/>
       <input type="text" className="signUp__input" placeholder='age' name="signUp__inputAge"/>
       <input type="text" className="signUp__input" placeholder='class' name="signUp__inputClass"/>
-      <input type="text" className="signUp__input" placeholder='pasword' name="signUp__inputPassword"/>
+      <input type="password" className="signUp__input" placeholder='pasword' name="signUp__inputPassword"/>
       <select name="signUp__select" id="signUp__select">
         <option value="student">Student</option>
         <option value="teacher">Teacher</option>
