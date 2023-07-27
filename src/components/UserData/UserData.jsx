@@ -26,7 +26,7 @@ export default function UserData(userData) {
         signUp__inputSurname: '',
         signUp__inputAge: '',
         signUp__inputClass: '',
-        signUp__select: '',
+        signUp__select: 'Student',
     });
 
     const handleChange = (e) => {
