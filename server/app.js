@@ -46,10 +46,13 @@ app.post('/login', async(req, res) => {
     try{
 
         const verify = await Student.findOne({email: data.email, password: data.password});
+
         console.log(verify)
 
         if(verify) {
-            res.sendStatus(200);
+            res
+            .send(verify)
+            .sendStatus(200);
         } else {
             res.sendStatus(404);         
         }        
