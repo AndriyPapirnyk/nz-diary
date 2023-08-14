@@ -45,7 +45,7 @@ function LogIn() {
             } else {
               alert('something went wrong')
             }
-              // response.status === 200 ? navigate('/home') : alert('somethin went wrong');
+              
           })
           .catch((error) => {
               console.error('Error:', error);
