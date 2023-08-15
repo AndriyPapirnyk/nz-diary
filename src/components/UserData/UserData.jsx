@@ -46,15 +46,7 @@ export default function UserData(userData) {
       try {
           await axios.post('http://localhost:8000/signup-data', {inputValues})
           .then((response) => {
-            if(response.status === 200) {
-              if(userData.status === 'Student') {
-                navigate('/student');
-              } else {
-                navigate('/teacher');
-              }
-            } else {
-              alert('something went wrong')
-            }
+              response.status === 200 ? navigate('/home') : alert('somethin went wrong');
           })
           .catch((error) => {
               console.error('Error:', error);

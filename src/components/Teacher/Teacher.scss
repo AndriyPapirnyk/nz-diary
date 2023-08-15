@@ -1,0 +1,38 @@
+.teacher{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./img/background.png);
+    background-size: cover;
+    background-position: 50%;
+    &__container{
+        width: 100%;
+        height: 100vh;
+        padding: 30px 95px;
+    }
+    &__line{
+        width: 100%;
+        background-color: #fff;
+        height: 5px;
+    }
+    &__main{
+        margin-top: 15px;
+        width: 100%;
+        height: 93%;
+        display: flex;
+        &__left{
+            width: 170px;
+            margin-right: 50px;
+            height: 100%;
+        }
+        &__right{
+            width: 95%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

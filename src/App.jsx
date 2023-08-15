@@ -13,7 +13,7 @@ function App() {
 
   const [userData, setUserData] = useState(null);
 
-  const getUserData = (data) => {
+  let getUserData = (data) => {
     setUserData(data);
     console.log(data)
   }
@@ -22,12 +22,12 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Welcome  />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/login" element={<LogIn  userData={userData} setUserData={setUserData}/>} />
         <Route path="/signup" element={<SignUp passUserData={getUserData} />} />
-        <Route path="/signup-data" element={ <UserData userData={userData} />} />
+        <Route path="/signup-data" element={ <UserData userData={userData} setUserData={setUserData} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/student" element={<Student />} />
-        <Route path="/teacher" element={<Teacher />} />
+        <Route path="/student" element={<Student userData={userData}/>} />
+        <Route path="/teacher" element={<Teacher userData={userData}/>} />
       </Routes>
     </Router>
   );

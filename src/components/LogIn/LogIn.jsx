@@ -8,8 +8,7 @@ import './LogIn.css';
 import star1 from './img/star1.png';
 import star2 from './img/star2.png';
 
-function LogIn() {
-
+function LogIn({userData, setUserData}) {
 
   const navigate = useNavigate();
 
@@ -34,10 +33,10 @@ function LogIn() {
       try {
           await axios.post('http://localhost:8000/login', {inputValues})
           .then((response) => {
-            let userData = response.data;
-            console.log(userData);
+            let data = response.data
+            console.log(data);
             if(response.status === 200) {
-              if(userData.status === 'Student') {
+              if(data.status === 'Student') {
                 navigate('/student');
               } else {
                 navigate('/teacher');
@@ -45,7 +44,7 @@ function LogIn() {
             } else {
               alert('something went wrong')
             }
-              
+            setUserData(data)
           })
           .catch((error) => {
               console.error('Error:', error);
@@ -55,8 +54,6 @@ function LogIn() {
           console.log(error);
       }
     };
-
-
 
 
 

@@ -1,0 +1,77 @@
+.header{
+    width: 100%;
+    height: 70px;
+    border-bottom: 5px solid #fff;
+    border-color: #fff;
+    display: flex;
+    &__left,&__right{
+        width: 50%;
+        height: 50%;
+        display: flex;
+    }
+    &__right{
+        justify-content: end;
+    }
+    &__logo{
+        display: flex;
+        align-items: center;
+        h1{
+            font-size: 50px;
+            font-weight: 700;
+            margin: 0 0 0 5px;
+            @media screen and (max-width: 430px) {
+                font-size: 40px;
+            }
+        }
+        img{
+            width: 50px;
+            @media screen and (max-width: 430px) {
+                width: 40px;
+            }
+        }
+    }
+    &__profile{
+        min-width: 150px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 30px;
+        cursor: pointer;
+    }
+    &__polygon{
+        width: 15px;
+        height: 12px;
+        margin-right: 5px;
+        transition: 0.4s;
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+        &_hover{
+            transform: rotate(-20deg);
+        }
+        &_clicked{
+            transform: rotate(-180deg); 
+        }
+    }
+    &__userName{
+        color: #333;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    &__btn{
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        background: #6864ED;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        font-size: 18px;
+        cursor: pointer;
+    }
+}
