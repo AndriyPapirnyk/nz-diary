@@ -101,6 +101,7 @@ app.post('/signup-data', async(req, res) => {
         email: inputData.signUp__inputEmail,
         password: inputData.signUp__inputPassword,
         status: inputData.signUp__select,
+        amountRoom: inputData.signUp__amountRoom
     }
 
     console.log(data)

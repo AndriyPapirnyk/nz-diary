@@ -10,6 +10,7 @@ const studentSchema = new Schema({
     class: String,
     password: String,
     status: String,
+    amountRoom:Number,
     subjects: {
         math: {
           type: [Number],

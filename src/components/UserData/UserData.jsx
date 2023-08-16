@@ -27,6 +27,7 @@ export default function UserData(userData) {
         signUp__inputAge: '',
         signUp__inputClass: '',
         signUp__select: 'Student',
+        signUp__amountRoom:0
     });
 
     const handleChange = (e) => {

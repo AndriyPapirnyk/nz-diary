@@ -15,7 +15,13 @@
   border-radius: 5px;
   color: #6864ED;
   font-weight: 600;
+  margin-right: 10px;
 }
-.search__inp::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.search__inp::placeholder {
+  color: #000;
+}
+.search__text {
+  font-size: 22px;
+  font-weight: 600;
   color: #000;
 }

@@ -14,8 +14,14 @@
         border-radius: 5px;
         color: #6864ED;
         font-weight: 600;
-        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        &::placeholder { 
             color: #000;
           }
+          margin-right: 10px;
+    }
+    &__text{
+        font-size: 22px;
+        font-weight: 600;
+        color: #000;
     }
 }
