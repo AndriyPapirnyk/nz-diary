@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import Menu from './Menu/Menu';
 import Search from './Search/Search';
+import Rooms from './Rooms/Rooms';
 import './Teacher.css';
 
 
@@ -15,7 +16,8 @@ export default function Teacher({userData}) {
             <Menu />
           </div>
           <div className="teacher__main__right">
-            <Search />
+            <Search amountRoom={ userData == null ? 100 : userData.amountRoom}/>
+            <Rooms amountRoom={ userData == null ? 0 : userData.amountRoom}/>
           </div>
         </div>
       </div>
